@@ -5,7 +5,7 @@ import {Avatar} from "@material-ui/core";
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import {AccountCircleOutlined, ChatBubbleOutline, ExpandMoreOutlined, NearMeOutlined} from "@material-ui/icons";
 
-function Post({profilePic, image, username, timestamp, message}) {
+function Post({profilePic, image, username, timestamp, message, currentUser}) {
 
 
     return (
@@ -51,11 +51,11 @@ function Post({profilePic, image, username, timestamp, message}) {
 
             </div>
             <div className="statusPost__top">
-                <Avatar src={''}/>
+                <Avatar src={currentUser.photoURL}/>
                 <form>
                     <input className="statusPost__top__input" type="text"
                            placeholder={`Write a comment ...?`}/>
-                    <button type="submit" onClick={''}>hidden</button>
+                    <button type="submit">hidden</button>
                 </form>
 
             </div>

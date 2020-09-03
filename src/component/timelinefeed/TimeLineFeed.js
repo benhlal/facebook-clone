@@ -3,9 +3,9 @@ import './TimeLineFeed.css';
 import StatusPost from "../statuspost/StatusPost";
 import StoryRow from "../storyrow/StoryRow";
 import Post from "../statuspost/post/Post";
-import db from "../config/firebase";
+import db from "../../config/firebase";
 
-function TimeLineFeed() {
+function TimeLineFeed({user}) {
 
     const [posts, setPosts] = useState([])
 
@@ -27,10 +27,11 @@ function TimeLineFeed() {
     return (
         <div className="timeLineFeed">
             <StoryRow/>
-            <StatusPost/>
+            <StatusPost user={user}/>
             {
                 posts.map(post =>
-                    (<Post key={post.data.id}
+                    (<Post currentUser={user}
+                           key={post.data.id}
                            image={post.data.image}
                            timestamp={new Date(post.data.timestamp?.toDate()).toUTCString()}
                            message={post.data.message}

@@ -3,21 +3,20 @@ import './App.css';
 import Header from "../header/Header";
 import SideBar from "../sidebarre/SideBar";
 import TimeLineFeed from "../timelinefeed/TimeLineFeed";
-import Widgets from "../widget/Widgets";
 import Login from "../login/Login";
-import {useStateValue} from "../../context/StateProvider";
+import {signInPopUp} from "../../store/actions/auth";
+import {connect} from "react-redux";
 
-function App() {
-    const [{user}, dispatch] = useStateValue();
+function App({user, signInPopUpProp}) {
+
     return (
         <div className="app">
-            {!user ? (<Login/>) :
+            {!user ? (<Login user={user} toSignIn={signInPopUpProp}/>) :
                 (<>
-                        <Header/>
+                        <Header user={user}/>
                         <div className="app__body">
                             <SideBar/>
-                            <TimeLineFeed/>
-                            <Widgets/>
+                            <TimeLineFeed user={user}/>
                         </div>
                     </>
                 )}
@@ -26,4 +25,17 @@ function App() {
     );
 }
 
-export default App;
+
+function mapStateToProps(state) {
+    return {
+        user: state.userReducer.user
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        signInPopUpProp: (callback) => dispatch(signInPopUp(callback))
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

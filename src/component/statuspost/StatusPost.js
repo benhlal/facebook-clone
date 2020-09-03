@@ -5,12 +5,11 @@ import VideocamIcon from '@material-ui/icons/Videocam';
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import {useStateValue} from "../../context/StateProvider";
-import db from "../config/firebase";
+import db from "../../config/firebase";
 import * as firebase from "firebase";
 
-function StatusPost() {
+function StatusPost({user}) {
 
-    const [{user}] = useStateValue()
     const [postInput, setPostInput] = useState("");
     const [imageUrl, setImageUrl] = useState("");
     const handleSubmit = (e) => {

@@ -12,7 +12,7 @@ const reducer = (state, action) => {
             //logic to adding items to basket
             let newState = {
                 ...state,
-                user: action.user,
+                user: action.payload,
             }
             console.log("new stats:" + JSON.stringify(newState))
 

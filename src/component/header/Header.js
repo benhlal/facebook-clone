@@ -11,10 +11,8 @@ import ForumIcon from '@material-ui/icons/Forum';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
 import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
-import {useStateValue} from "../../context/StateProvider";
 
-function Header() {
-    const [{user}] = useStateValue();
+function Header({user}) {
 
     return (
         <div className="header">
