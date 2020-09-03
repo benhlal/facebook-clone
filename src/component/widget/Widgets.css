@@ -1,0 +1,9 @@
+.widgets {
+    border: none;
+    overflow: hidden;
+}
+
+.fb-page {
+    width: 350px;
+    height: 100%;
+}

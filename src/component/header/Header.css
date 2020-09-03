@@ -1,0 +1,118 @@
+.header {
+    display: flex;
+    padding: 10px 20px 0;
+    justify-content: space-between;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    background-color: white;
+    box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
+}
+
+
+/***************************************** HEADER LEFT ********************************/
+
+.header__left > img {
+    height: 40px;
+}
+
+.header__left {
+    display: flex;
+}
+
+/*********    header input **********/
+.header__input {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 999px;
+    background-color: #eff2f5;
+}
+
+
+.header__input > input {
+    border: none;
+    background-color: transparent;
+    outline-width: 0;
+}
+
+/*********  end header input **********/
+/******************************** END HEADER LEFT ********************************/
+
+
+/********************************   HEADER CENTER  ********************************/
+.header__center {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+/*********  header options **********/
+.header__option {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    margin-left: 50px;
+
+    cursor: pointer;
+
+}
+
+.header__option :hover {
+    border-radius: 10px;
+    align-items: center;
+    border-bottom: none;
+    background-color: #eff2f5;
+}
+
+.header__option > .MuiSvgIcon-root {
+    color: gray;
+}
+
+.header__option > .MuiSvgIcon-root :hover {
+    color: #1877f2;
+}
+
+.header__option--active {
+    border-bottom: 4px solid #1877f2;;
+}
+
+.header__option--active > .MuiSvgIcon-root {
+    color: #1877f2;
+
+}
+
+
+/*********   end header options **********/
+
+/******************************** END HEADER CENTER *********************************/
+
+
+/******************************** HEADER RIGHT ********************************/
+
+.header__right {
+    display: flex;
+}
+
+/*********  header info **********/
+
+.header__info {
+    display: flex;
+    align-items: center;
+}
+
+.header__info > h4 {
+    margin-left: 10px;
+}
+
+/*********   end header info **********/
+
+
+/******************************** END HEADER RIGHT ********************************/
+
+
+
+
