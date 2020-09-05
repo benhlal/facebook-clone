@@ -1,0 +1,44 @@
+.commentBloc {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #eff2f5;
+    background-color: white;
+    box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
+    width: 100%
+
+}
+
+.commentBloc__top {
+    display: flex;
+    padding: 15px;
+}
+
+.commentBloc__top > form {
+    flex: 1;
+    display: flex;
+
+}
+
+.commentBloc__top > form > input {
+    outline-width: 0;
+    border: none;
+    padding: 5px 20px;
+    margin: 0 10px;
+    border-radius: 999px;
+    background-color: #eff2f5;
+}
+
+.commentBloc__top__input {
+    flex: 1;
+}
+
+.commentBloc__top > form > button {
+    display: none;
+}
+
+.commentBloc__bottom {
+    padding: 15px;
+}
+
+
+

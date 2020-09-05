@@ -4,10 +4,12 @@ import StatusPost from "../statuspost/StatusPost";
 import StoryRow from "../storyrow/StoryRow";
 import Post from "../statuspost/post/Post";
 import db from "../../config/firebase";
+import {formatDate} from "../../utilities/Utilities";
 
 function TimeLineFeed({user}) {
 
     const [posts, setPosts] = useState([])
+
 
     useEffect(() => {
         db.collection("posts")
@@ -31,14 +33,17 @@ function TimeLineFeed({user}) {
             {
                 posts.map(post =>
                     (<Post currentUser={user}
-                           key={post.data.id}
+                           postId={post.id}
+                           key={post.id}
                            image={post.data.image}
-                           timestamp={new Date(post.data.timestamp?.toDate()).toUTCString()}
+                           timestamp={formatDate(post.data.timestamp)}
                            message={post.data.message}
                            username={post.data.username}
                            profilePic={post.data.profilePic}
-                    />))
+                    />)
+                )
             }
+
         </div>
     );
 }

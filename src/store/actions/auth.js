@@ -1,6 +1,7 @@
 import {
     RESET_ERROR,
     RESET_SUCCESS,
+    SET_USER,
     SIGNIN_ERROR,
     SIGNOUT_ERROR,
     SIGNOUT_SUCCESS,
@@ -9,22 +10,19 @@ import {
 } from "./actionTypes";
 import {apiCallError, beginApiCall} from "./apiStatus";
 import firebase, {auth, provider} from "../../config/firebase";
-import {actionTypes} from "../../context/reducer";
 
 // Signing up with Firebase
 export const signup = (email, password) => async dispatch => {
     try {
         dispatch(beginApiCall());
-        firebase
-            .auth()
-            .createUserWithEmailAndPassword(email, password)
+        auth.createUserWithEmailAndPassword(email, password)
             .then(dataBeforeEmail => {
                 firebase.auth().onAuthStateChanged(function (user) {
                     user.sendEmailVerification();
                 });
             })
             .then(dataAfterEmail => {
-                firebase.auth().onAuthStateChanged(function (user) {
+                auth.onAuthStateChanged(function (user) {
                     if (user) {
                         // Sign up successful
                         dispatch({
@@ -60,40 +58,12 @@ export const signup = (email, password) => async dispatch => {
     }
 };
 
-// Signing in with Firebase
-export const signin = (email, password, callback) => async dispatch => {
-
-    try {
-        dispatch(beginApiCall());
-        firebase
-            .auth()
-            .signInWithPopup(provider)
-            .then(data => {
-                dispatch({
-                    type: actionTypes.SET_USER,
-                    payload: data.user
-                })
-            })
-            .catch(() => {
-                dispatch(apiCallError());
-                dispatch({
-                    type: SIGNIN_ERROR,
-                    payload: "Invalid login credentials"
-                });
-            });
-    } catch (err) {
-        dispatch(apiCallError());
-        dispatch({type: SIGNIN_ERROR, payload: "Invalid login credentials"});
-    }
-};
 
 // Signing out with Firebase
-export const signout = () => async dispatch => {
+export const disconnect = () => async dispatch => {
     try {
         dispatch(beginApiCall());
-        firebase
-            .auth()
-            .signOut()
+        auth.signOut()
             .then(() => {
                 dispatch({type: SIGNOUT_SUCCESS});
             })
@@ -117,9 +87,7 @@ export const signout = () => async dispatch => {
 export const resetPassword = email => async dispatch => {
     try {
         dispatch(beginApiCall());
-        firebase
-            .auth()
-            .sendPasswordResetEmail(email)
+        auth.sendPasswordResetEmail(email)
             .then(() =>
                 dispatch({
                     type: RESET_SUCCESS,
@@ -141,16 +109,17 @@ export const resetPassword = email => async dispatch => {
     }
 };
 
-export const signInPopUp = () => async dispatch => {
-
+export const signInWithPopUp = (callback) => async dispatch => {
     try {
         dispatch(beginApiCall());
         auth.signInWithPopup(provider)
             .then((res) => {
                 dispatch({
-                    type: actionTypes.SET_USER,
+                    type: SET_USER,
                     payload: res.user
-                })
+                });
+                callback();
+
             })
             .catch(() => {
                 dispatch(apiCallError());

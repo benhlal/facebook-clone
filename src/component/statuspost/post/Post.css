@@ -17,13 +17,31 @@
 
 .post__top__info {
     margin-left: 10px;
+    font-size: small;
+}
+
+.post__top__info > h3 {
+    cursor: pointer;
+}
+
+.post__top__info > p {
+    font-size: small;
+    color: gray;
+}
+
+
+.separator {
+    height: 1px;
+    border: 0;
+    background-color: lightgray;
+    justify-items: center;
+    margin: 10px;
 }
 
 
 .post__bottom {
-    margin-top: 10px;
     margin-bottom: 10px;
-    padding: 15px 25px;
+    padding: 10px 20px;
 }
 
 .post__options {
@@ -51,4 +69,60 @@
 .post__option:hover {
     background-color: #eff2f5;
     border-radius: 10px;
+}
+
+.post__stats {
+    display: flex;
+    padding: 10px 20px;
+    color: gray;
+}
+
+.post__stats__left {
+    flex: 1;
+}
+
+.post__stats__right {
+    display: flex;
+}
+
+
+.stats__comments {
+    padding: 8px;
+}
+
+.stats__shares {
+    padding: 8px;
+}
+
+.stats__comments:hover {
+    background-color: #eff2f5;
+    border-radius: 10px;
+    color: #1877f2;
+    cursor: pointer;
+}
+
+.stats__shares:hover {
+    background-color: #eff2f5;
+    border-radius: 10px;
+    color: #1877f2;
+    cursor: pointer;
+}
+
+.post__stats__right > span {
+    margin-left: 10px;
+}
+
+.post__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.post__image > img {
+    width: 99%;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+
 }

@@ -6,8 +6,7 @@ const INITIAL_STATE = {
 
 
 const userReducer = (state = INITIAL_STATE, action) => {
-    console.log("payload", action.payload)
-    console.log("state", state)
+
     switch (action.type) {
         case SET_USER:
             //logic to adding items to basket
@@ -16,7 +15,6 @@ const userReducer = (state = INITIAL_STATE, action) => {
                 user: action.payload,
             }
             console.log("payload after", action.payload)
-            console.log("state after", state)
             console.log("new stats:" + JSON.stringify(newState))
 
             return newState;

@@ -11,9 +11,19 @@ import ForumIcon from '@material-ui/icons/Forum';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
 import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
-function Header({user}) {
+function Header({user, logOut}) {
+    const [anchorEl, setAnchorEl] = React.useState(null);
 
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
     return (
         <div className="header">
 
@@ -69,9 +79,19 @@ function Header({user}) {
                 <IconButton>
                     <ForumIcon></ForumIcon>
                 </IconButton>
-                <IconButton>
-                    <ExpandMoreOutlinedIcon></ExpandMoreOutlinedIcon>
+                <IconButton onClick={handleClick}>
+                    <ExpandMoreOutlinedIcon/>
                 </IconButton>
+                <Menu
+                    id="simple-menu"
+                    anchorEl={anchorEl}
+                    keepMounted
+                    open={Boolean(anchorEl)}
+                    onClose={handleClose}
+                >
+                    <MenuItem onClick={handleClose}>Profile</MenuItem>
+                    <MenuItem onClick={()=>logOut()}>Logout</MenuItem>
+                </Menu>
             </div>
         </div>
     );
