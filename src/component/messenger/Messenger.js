@@ -2,8 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import './Messenger.css';
 import {connect} from "react-redux";
 import Header from "../header/Header";
-import {Avatar, IconButton} from "@material-ui/core";
-import FormControl from "@material-ui/core/FormControl";
+import {Avatar, FormControl, IconButton} from "@material-ui/core";
 import db from "../../config/firebase";
 import firebase from "firebase";
 import Message from "./message/Message";
@@ -121,8 +120,11 @@ function Messenger({user}) {
                                 <input className="message__contact__send" placeholder={"Type your message..."}
                                        value={input}
                                        onChange={event => setInput(event.target.value)}/>
-                                <SendIcon className="message__contact__send__btn" disabled={!input} type="submit"
-                                          onClick={sendMessage}/>
+                                <IconButton type="submit"
+                                            onClick={sendMessage}>
+                                    <SendIcon className="message__contact__send__btn" disabled={!input}/>
+                                </IconButton>
+
 
                             </FormControl>
                         </form>
