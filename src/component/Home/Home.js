@@ -7,6 +7,7 @@ import {disconnect} from "../../store/actions/auth";
 import requireAuth from "../hoc/requireAuth";
 import {connect} from "react-redux";
 import {compose} from "redux";
+import RightSideBar from "../sidebarre/sidebarright/RightSideBar";
 
 function Home({logOff, user}) {
 
@@ -16,6 +17,8 @@ function Home({logOff, user}) {
             <div className="home__body">
                 <SideBar/>
                 <TimeLineFeed user={user}/>
+                <RightSideBar/>
+
             </div>
         </div>
     );

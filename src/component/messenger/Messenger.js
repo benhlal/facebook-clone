@@ -169,7 +169,7 @@ function Messenger({user}) {
                                         <p>Notifications</p>
                                         <p>Ignore Messages</p>
                                         <p>Block Messages</p>
-                                        <p>omething's Wrong</p>
+                                        <p>Something's Wrong</p>
                                     </div>
                                 </AccordionDetails>
                             </Accordion>
