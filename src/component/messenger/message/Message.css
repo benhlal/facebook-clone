@@ -1,0 +1,36 @@
+.message {
+    padding: 10px;
+    margin: 10px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.message__currentUser {
+    margin-left: auto;
+    color: white;
+    text-align: right !important;
+
+}
+
+.message__userCard {
+    align-items: center;
+    background-color: #0099FF !important;
+    color: white !important;
+    border-radius: 30px !important;
+    border-bottom-right-radius: 10px !important;
+
+
+}
+
+.message__guessCard {
+    background-color: #F1F0F0 !important;
+    color: black !important;
+    border-radius: 30px !important;
+    border: none !important;
+    border-bottom-left-radius: 10px !important;
+}
+
+.message__typography {
+    border-bottom-left-radius: 10px !important;
+}

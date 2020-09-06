@@ -8,6 +8,7 @@ import ChatIcon from '@material-ui/icons/Chat';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {Link} from "react-router-dom";
 
 function SideBar() {
 
@@ -17,7 +18,9 @@ function SideBar() {
             <SideBarRow Icon={LocalHospitalOutlinedIcon} title={'COVID-19 Information Center'}/>
             <SideBarRow Icon={EmojiFlagsOutlinedIcon} title={'pages'}/>
             <SideBarRow Icon={PeopleIcon} title={'Friends'}/>
-            <SideBarRow Icon={ChatIcon} title={'Messenger'}/>
+            <Link style={{ color: 'inherit', textDecoration: 'none'}} to={"/messenger"}>
+                <SideBarRow Icon={ChatIcon} title={'Messenger'}/>
+            </Link>
             <SideBarRow Icon={StorefrontIcon} title={'Marketplace'}/>
             <SideBarRow Icon={VideoLibraryIcon} title={'Videos'}/>
             <SideBarRow Icon={ExpandMoreIcon} title={'Marketplace'}/>

@@ -13,6 +13,7 @@ import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
 import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import {Link} from "react-router-dom";
 
 function Header({user, logOut}) {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -39,12 +40,11 @@ function Header({user, logOut}) {
 
 
             <div className="header__center">
-
-                <div className="header__option
-                header__option--active">
-                    <HomeIcon fontSize="large"/>
-                </div>
-
+                <Link style={{color: 'inherit', textDecoration: 'none'}} to={"/"}>
+                    <div className="header__option header__option--active">
+                        <HomeIcon fontSize="large"/>
+                    </div>
+                </Link>
                 <div className="header__option">
                     <FlagIcon fontSize="large"/>
                 </div>
@@ -64,12 +64,12 @@ function Header({user, logOut}) {
             </div>
 
             <div className="header__right">
-
-                <div className="header__info">
-                    <Avatar
-                        src={user.photoURL}/>
-                    <h4>{user.displayName}</h4>
-                </div>
+                <Link style={{color: 'inherit', textDecoration: 'none'}} to={"/"}>
+                    <div className="header__info">
+                        <Avatar src={user.photoURL}/>
+                        <h5>{user.displayName}</h5>
+                    </div>
+                </Link>
                 <IconButton>
                     <AddIcon></AddIcon>
                 </IconButton>
@@ -90,7 +90,7 @@ function Header({user, logOut}) {
                     onClose={handleClose}
                 >
                     <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={()=>logOut()}>Logout</MenuItem>
+                    <MenuItem onClick={() => logOut()}>Logout</MenuItem>
                 </Menu>
             </div>
         </div>

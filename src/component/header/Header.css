@@ -95,6 +95,8 @@
 
 .header__right {
     display: flex;
+    align-items: center;
+
 }
 
 /*********  header info **********/
@@ -104,7 +106,7 @@
     align-items: center;
 }
 
-.header__info > h4 {
+.header__info > h5 {
     margin-left: 10px;
 }
 

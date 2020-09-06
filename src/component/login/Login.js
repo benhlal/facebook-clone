@@ -11,7 +11,7 @@ function Login({signInPopUpProp, history}) {
                 <img src="../static/fb.svg"/>
                 <img src="../static/fb_logo.svg"/>
             </div>
-            <Button onClick={() => signInPopUpProp(() => history.push("/home"))}>Sign In</Button>
+            <Button onClick={() => signInPopUpProp(() => history.push("/"))}>Sign In</Button>
         </div>
     );
 }

@@ -1,0 +1,40 @@
+.messengerSideBarRow {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.messengerSideBarRow:hover {
+    background-color: #F2F2F2;
+    border-radius: 10px;
+}
+
+.messengerSideBarRow > h4 {
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+.messengerSideBarRow > .MuiSvgIcon-root {
+    font-size: xx-large;
+    color: #2e81f4;
+}
+
+.messengerSideBarRow__info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+
+}
+
+.messengerSideBarRow__info > h4 {
+    font-weight: bolder;
+    font-size: small;
+}
+
+.messengerSideBarRow__info > h4:last-child {
+    color: gray;
+    font-weight: lighter;
+    font-size: small;
+}
